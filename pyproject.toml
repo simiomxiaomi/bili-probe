@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bili-probe"
+version = "0.1.0"
+description = "B 站视频探查工具：下载、弹幕、评论、抽帧、场景检测、接触表"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "苏小晗" }]
+keywords = ["bilibili", "danmaku", "ffmpeg", "video", "scene-detection", "keyframes"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Video",
+    "Environment :: Console",
+]
+
+[project.optional-dependencies]
+sheets = ["pillow>=10.0", "numpy>=1.24"]
+ffmpeg = ["imageio-ffmpeg>=0.4.9"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+bili-probe = "bili_probe.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/your-name/bili-probe"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
